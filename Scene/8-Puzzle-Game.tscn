@@ -8,48 +8,48 @@
 [ext_resource path="res://Scripts/Mouse.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Background.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2, 2 )
 
-[sub_resource type="Theme" id=12]
+[sub_resource type="Theme" id=2]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32, 32 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 500, 280 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
 region = Rect2( 500, 0, 500, 280 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
 region = Rect2( 1000, 0, 500, 280 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 3 )
 region = Rect2( 1500, 0, 500, 280 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 3 )
 region = Rect2( 2000, 0, 500, 280 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 3 )
 region = Rect2( 2500, 0, 500, 280 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 3 )
 region = Rect2( 3000, 0, 500, 280 )
 
-[sub_resource type="SpriteFrames" id=20]
+[sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": false,
 "name": "Congrates",
 "speed": 7.0
@@ -69,7 +69,7 @@ collision_mask = 2
 
 [node name="CS2D_Mouse" type="CollisionShape2D" parent="A2D_Mouse"]
 position = Vector2( 2, 2 )
-shape = SubResource( 9 )
+shape = SubResource( 1 )
 
 [node name="Control" type="Control" parent="."]
 margin_right = 500.0
@@ -154,7 +154,7 @@ margin_top = 110.0
 margin_right = 465.0
 margin_bottom = 174.0
 rect_pivot_offset = Vector2( 47, 32 )
-theme = SubResource( 12 )
+theme = SubResource( 2 )
 text = "Path Finding"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -173,7 +173,7 @@ script = ExtResource( 4 )
 
 [node name="CS2D_1" type="CollisionShape2D" parent="Pallete/KB2D_1"]
 position = Vector2( 32, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="1" type="Sprite" parent="Pallete/KB2D_1"]
 texture = ExtResource( 2 )
@@ -187,7 +187,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete/KB2D_1/SB2D_1"]
 position = Vector2( 32, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="KB2D_2" type="KinematicBody2D" parent="Pallete"]
 position = Vector2( 72, 0 )
@@ -198,7 +198,7 @@ px = 72
 
 [node name="CS2D_2" type="CollisionShape2D" parent="Pallete/KB2D_2"]
 position = Vector2( 32, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="2" type="Sprite" parent="Pallete/KB2D_2"]
 texture = ExtResource( 2 )
@@ -212,7 +212,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete/KB2D_2/SB2D_2"]
 position = Vector2( 32, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="KB2D_3" type="KinematicBody2D" parent="Pallete"]
 position = Vector2( 144, 0 )
@@ -223,7 +223,7 @@ px = 144
 
 [node name="CS2D_3" type="CollisionShape2D" parent="Pallete/KB2D_3"]
 position = Vector2( 32, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="3" type="Sprite" parent="Pallete/KB2D_3"]
 texture = ExtResource( 2 )
@@ -237,7 +237,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete/KB2D_3/SB2D_3"]
 position = Vector2( 32, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="KB2D_4" type="KinematicBody2D" parent="Pallete"]
 position = Vector2( 144, 72 )
@@ -250,7 +250,7 @@ py = 72
 
 [node name="CS2D_4" type="CollisionShape2D" parent="Pallete/KB2D_4"]
 position = Vector2( 32, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="4" type="Sprite" parent="Pallete/KB2D_4"]
 texture = ExtResource( 2 )
@@ -264,7 +264,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete/KB2D_4/SB2D_4"]
 position = Vector2( 32, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="KB2D_5" type="KinematicBody2D" parent="Pallete"]
 position = Vector2( 144, 144 )
@@ -277,7 +277,7 @@ py = 144
 
 [node name="CS2D_5" type="CollisionShape2D" parent="Pallete/KB2D_5"]
 position = Vector2( 32, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="5" type="Sprite" parent="Pallete/KB2D_5"]
 texture = ExtResource( 2 )
@@ -291,7 +291,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete/KB2D_5/SB2D_5"]
 position = Vector2( 32, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="KB2D_6" type="KinematicBody2D" parent="Pallete"]
 position = Vector2( 72, 144 )
@@ -304,7 +304,7 @@ py = 144
 
 [node name="CS2D_6" type="CollisionShape2D" parent="Pallete/KB2D_6"]
 position = Vector2( 32, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="6" type="Sprite" parent="Pallete/KB2D_6"]
 texture = ExtResource( 2 )
@@ -318,7 +318,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete/KB2D_6/SB2D_6"]
 position = Vector2( 32, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="KB2D_7" type="KinematicBody2D" parent="Pallete"]
 position = Vector2( 0, 144 )
@@ -329,7 +329,7 @@ py = 144
 
 [node name="CS2D_7" type="CollisionShape2D" parent="Pallete/KB2D_7"]
 position = Vector2( 32, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="7" type="Sprite" parent="Pallete/KB2D_7"]
 texture = ExtResource( 2 )
@@ -343,7 +343,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete/KB2D_7/SB2D_7"]
 position = Vector2( 32, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="KB2D_8" type="KinematicBody2D" parent="Pallete"]
 position = Vector2( 0, 72 )
@@ -354,7 +354,7 @@ py = 72
 
 [node name="CS2D_8" type="CollisionShape2D" parent="Pallete/KB2D_8"]
 position = Vector2( 32, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="8" type="Sprite" parent="Pallete/KB2D_8"]
 texture = ExtResource( 2 )
@@ -368,7 +368,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete/KB2D_8/SB2D_8"]
 position = Vector2( 32, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="KB2D_B" type="KinematicBody2D" parent="Pallete"]
 position = Vector2( 72, 72 )
@@ -381,7 +381,7 @@ py = 72
 
 [node name="CS2D_B" type="CollisionShape2D" parent="Pallete/KB2D_B"]
 position = Vector2( 32, 32 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="B" type="Sprite" parent="Pallete/KB2D_B"]
 texture = ExtResource( 2 )
@@ -395,14 +395,17 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pallete/KB2D_B/SB2D_B"]
 position = Vector2( 32, 32 )
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="Congrates" type="AnimatedSprite" parent="."]
-frames = SubResource( 20 )
+frames = SubResource( 12 )
 animation = "Congrates"
 frame = 6
 playing = true
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Auto_Timer" type="Timer" parent="."]
 wait_time = 0.5

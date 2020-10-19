@@ -110,23 +110,25 @@ func _on_Exit_button_up():
 func callback_findpath(var data):
 	var pallete = data[0]
 	var path = data[1]
+	var previous_move = data[2]
 	if (pallete.get_pattern() == "1238B4765"):
 		Solved = true
 		Next_Steps = path
+		print(path)
 		left_pannel(true)
 		var i = 0
-		while(i + 1 < len(path)):
-			if (len(path) < 1):
-				break
-			if(i < 0):
-				i = 0
-			if (path[i] == path[i + 1]):
-				for k in range(0, 2):
-					for j in range(i, len(path) - 1):
-						path[j] = path[j + 1]
-					path.pop_back()
-				i = i - 2
-			i = i + 1
+#		while(i + 1 < len(path)):
+#			if (len(path) < 1):
+#				break
+#			if(i < 0):
+#				i = 0
+#			if (path[i] == path[i + 1]):
+#				for k in range(0, 2):
+#					for j in range(i, len(path) - 1):
+#						path[j] = path[j + 1]
+#					path.pop_back()
+#				i = i - 2
+#			i = i + 1
 		var congrate = get_node("../Congrates")
 		congrate.play("Congrates")
 		congrate.frame = 0
@@ -136,6 +138,10 @@ func callback_findpath(var data):
 		var p2 = []
 		var p3 = []
 		var p4 = []
+		var move_1 = null
+		var move_2 = null
+		var move_3 = null
+		var move_4 = null
 		var first = false
 		var second = false
 		var third = false
@@ -159,7 +165,8 @@ func callback_findpath(var data):
 		pallete2.set_pattern()
 		pallete3.set_pattern()
 		pallete4.set_pattern()
-		if (pallete.blackx + 1 <= 2):
+		if (pallete.blackx + 1 <= 2 and pallete1.get_pallete(pallete.blackx + 1, pallete.blacky).get_child(1).name != previous_move.back()):
+			move_1 = pallete1.get_pallete(pallete.blackx + 1, pallete.blacky).get_child(1).name
 			var blackx = pallete.blackx
 			var blacky = pallete.blacky
 			var temp = pallete1.get_pallete(blackx + 1, blacky)
@@ -169,7 +176,8 @@ func callback_findpath(var data):
 			pallete1.set_pattern()
 			if (pallete1.get_pattern() != pallete.get_pattern()):
 				first = true
-		if(pallete.blackx - 1 >= 0):
+		if(pallete.blackx - 1 >= 0 and pallete2.get_pallete(pallete.blackx - 1, pallete.blacky).get_child(1).name != previous_move.back()):
+			move_2 = pallete2.get_pallete(pallete.blackx - 1, pallete.blacky).get_child(1).name
 			var blackx = pallete.blackx
 			var blacky = pallete.blacky
 			var temp = pallete2.get_pallete(blackx - 1, blacky)
@@ -179,7 +187,8 @@ func callback_findpath(var data):
 			pallete2.set_pattern()
 			if (pallete2.get_pattern() != pallete.get_pattern()):
 				second = true
-		if(pallete.blacky + 1 <= 2):
+		if(pallete.blacky + 1 <= 2 and pallete3.get_pallete(pallete.blackx, pallete.blacky + 1).get_child(1).name != previous_move.back()):
+			move_3 = pallete3.get_pallete(pallete.blackx, pallete.blacky + 1).get_child(1).name
 			var blackx = pallete.blackx
 			var blacky = pallete.blacky
 			var temp = pallete3.get_pallete(blackx, blacky + 1)
@@ -189,7 +198,8 @@ func callback_findpath(var data):
 			pallete3.set_pattern()
 			if (pallete3.get_pattern() != pallete.get_pattern()):
 				third = true
-		if(pallete.blacky - 1 >= 0):
+		if(pallete.blacky - 1 >= 0 and pallete4.get_pallete(pallete.blackx, pallete.blacky - 1).get_child(1).name != previous_move.back()):
+			move_4 = pallete4.get_pallete(pallete.blackx, pallete.blacky - 1).get_child(1).name
 			var blackx = pallete.blackx
 			var blacky = pallete.blacky
 			var temp = pallete4.get_pallete(blackx, blacky - 1)
@@ -203,16 +213,24 @@ func callback_findpath(var data):
 			return
 		if (first):
 			if (!Solved):
-				callback_findpath([pallete1,p1])
+				previous_move.push_back(move_1)
+				callback_findpath([pallete1, p1, previous_move])
+				previous_move.pop_back()
 		if (second):
 			if (!Solved):
-				callback_findpath([pallete2,p2])
+				previous_move.push_back(move_2)
+				callback_findpath([pallete2, p2, previous_move])
+				previous_move.pop_back()
 		if (third):
 			if (!Solved):
-				callback_findpath([pallete3,p3])
+				previous_move.push_back(move_3)
+				callback_findpath([pallete3, p3, previous_move])
+				previous_move.pop_back()
 		if (fourth):
 			if (!Solved):
-				callback_findpath([pallete4,p4])
+				previous_move.push_back(move_4)
+				callback_findpath([pallete4, p4, previous_move])
+				previous_move.pop_back()
 
 func left_pannel(var enable):
 	if enable:
@@ -246,7 +264,7 @@ func _on_Path_Finding_button_up():
 	var node_path = get_node("Path_Finding")
 	node_path.disabled = true
 	left_pannel(false)
-	callback_findpath([Pallete_Place, []])
+	callback_findpath([Pallete_Place, [], []])
 	node_path.disabled = false
 
 func _on_Step_P_button_up():
