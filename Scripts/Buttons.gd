@@ -117,18 +117,6 @@ func callback_findpath(var data):
 		print(path)
 		left_pannel(true)
 		var i = 0
-#		while(i + 1 < len(path)):
-#			if (len(path) < 1):
-#				break
-#			if(i < 0):
-#				i = 0
-#			if (path[i] == path[i + 1]):
-#				for k in range(0, 2):
-#					for j in range(i, len(path) - 1):
-#						path[j] = path[j + 1]
-#					path.pop_back()
-#				i = i - 2
-#			i = i + 1
 		var congrate = get_node("../Congrates")
 		congrate.play("Congrates")
 		congrate.frame = 0
@@ -174,8 +162,7 @@ func callback_findpath(var data):
 			pallete1.set_pallete(pallete1.get_pallete(blackx, blacky), blackx + 1, blacky)
 			pallete1.set_pallete(temp, blackx, blacky)
 			pallete1.set_pattern()
-			if (pallete1.get_pattern() != pallete.get_pattern()):
-				first = true
+			first = true
 		if(pallete.blackx - 1 >= 0 and pallete2.get_pallete(pallete.blackx - 1, pallete.blacky).get_child(1).name != previous_move.back()):
 			move_2 = pallete2.get_pallete(pallete.blackx - 1, pallete.blacky).get_child(1).name
 			var blackx = pallete.blackx
@@ -185,8 +172,7 @@ func callback_findpath(var data):
 			pallete2.set_pallete(pallete2.get_pallete(blackx, blacky), blackx - 1, blacky)
 			pallete2.set_pallete(temp, blackx, blacky)
 			pallete2.set_pattern()
-			if (pallete2.get_pattern() != pallete.get_pattern()):
-				second = true
+			second = true
 		if(pallete.blacky + 1 <= 2 and pallete3.get_pallete(pallete.blackx, pallete.blacky + 1).get_child(1).name != previous_move.back()):
 			move_3 = pallete3.get_pallete(pallete.blackx, pallete.blacky + 1).get_child(1).name
 			var blackx = pallete.blackx
@@ -196,8 +182,7 @@ func callback_findpath(var data):
 			pallete3.set_pallete(pallete3.get_pallete(blackx, blacky), blackx, blacky + 1)
 			pallete3.set_pallete(temp, blackx, blacky)
 			pallete3.set_pattern()
-			if (pallete3.get_pattern() != pallete.get_pattern()):
-				third = true
+			third = true
 		if(pallete.blacky - 1 >= 0 and pallete4.get_pallete(pallete.blackx, pallete.blacky - 1).get_child(1).name != previous_move.back()):
 			move_4 = pallete4.get_pallete(pallete.blackx, pallete.blacky - 1).get_child(1).name
 			var blackx = pallete.blackx
@@ -207,9 +192,8 @@ func callback_findpath(var data):
 			pallete4.set_pallete(pallete4.get_pallete(blackx, blacky), blackx, blacky - 1)
 			pallete4.set_pallete(temp, blackx, blacky)
 			pallete4.set_pattern()
-			if (pallete4.get_pattern() != pallete.get_pattern()):
-				fourth = true
-		if (len(path) > 10):
+			fourth = true
+		if (len(path) > 20):
 			return
 		if (first):
 			if (!Solved):
